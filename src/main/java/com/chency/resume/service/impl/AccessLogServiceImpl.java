@@ -8,6 +8,7 @@ import com.github.pagehelper.PageInfo;
 import java.util.List;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 /**
@@ -22,6 +23,9 @@ public class AccessLogServiceImpl implements IAccessLogService {
 
   @Resource private AccessLogMapper accessLogMapper;
 
+  @Value("${config.page.size:100}")
+  private Integer configPageSize;
+
   @Override
   public int save(AccessLog accessLog) {
     return accessLogMapper.insert(accessLog);
@@ -35,7 +39,7 @@ public class AccessLogServiceImpl implements IAccessLogService {
   @Override
   public PageInfo<AccessLog> queryPage(Integer pageNo, Integer pageSize) {
     pageNo = pageNo == null ? (Integer) 1 : pageNo;
-    pageSize = pageSize == null ? (Integer) 30 : pageSize;
+    pageSize = pageSize == null ? configPageSize : pageSize;
     PageHelper.startPage(pageNo, pageSize); // 告诉插件开始分页
     List<AccessLog> selectAll = accessLogMapper.selectAll();
     PageInfo<AccessLog> pageInfo = new PageInfo<>(selectAll);
