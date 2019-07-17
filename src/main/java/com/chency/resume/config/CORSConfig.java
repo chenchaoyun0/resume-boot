@@ -1,19 +1,17 @@
-package com.boylegu.springboot_vue.config;
+package com.chency.resume.config;
 
+import java.rmi.registry.Registry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import static org.springframework.web.cors.CorsConfiguration.ALL;
 
-/**
- * CORS configuration
- */
 @Configuration
 public class CORSConfig {
-
     @Bean
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurerAdapter() {
