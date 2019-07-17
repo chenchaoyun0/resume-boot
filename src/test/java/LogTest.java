@@ -3,7 +3,7 @@ import com.github.pagehelper.PageInfo;
 import com.megvii.dzh.utils.UUIDUtils;
 import java.util.Date;import com.alibaba.fastjson.JSON;
 import com.chency.resume.App;
-import com.chency.resume.entities.AccessLog;
+import com.chency.resume.domain.entities.AccessLog;
 import com.chency.resume.service.IAccessLogService;
 import java.util.List;
 import javax.annotation.Resource;

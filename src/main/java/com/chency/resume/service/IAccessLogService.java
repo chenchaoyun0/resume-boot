@@ -1,6 +1,6 @@
 package com.chency.resume.service;
 
-import com.chency.resume.entities.AccessLog;
+import com.chency.resume.domain.entities.AccessLog;
 import com.github.pagehelper.PageInfo;
 import java.util.List;
 

@@ -1,7 +1,7 @@
 <template>
     <header style="background-color: rgb(10, 47, 88);">
         <div class="text-logo">{{msg}}</div>
-        <p class="meta">This demo project for express new develop practice demo.</p>
+        <p class="meta">本页面是一个demo页记录来自世界各地的IP访问，如个人，网络蜘蛛🕷</p>
         <ul class="header-operations">
         </ul>
     </header>
@@ -12,7 +12,7 @@
         name: 'db-header',
         data () {
             return {
-                msg: 'SpringBoot-vue'
+                msg: '神奇的CC'
             }
         }
     }

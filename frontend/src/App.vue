@@ -14,14 +14,14 @@
 
         </el-row>
 
-        <el-row>
-            <el-col :span="24">
-                <footer class="footer">
-                    <db-footer></db-footer>
-                </footer>
+        <!--<el-row>-->
+            <!--<el-col :span="24">-->
+                <!--<footer class="footer">-->
+                    <!--<db-footer></db-footer>-->
+                <!--</footer>-->
 
-            </el-col>
-        </el-row>
+            <!--</el-col>-->
+        <!--</el-row>-->
     </div>
 </template>
 

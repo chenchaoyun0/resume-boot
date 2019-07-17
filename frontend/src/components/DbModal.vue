@@ -1,15 +1,15 @@
 <template>
     <el-dialog title="Edit" v-model="dialogFormVisible" :close-on-click-modal="false" :show-close="false">
         <el-form :model="form">
-            <el-form-item label="item_id" :label-width="formLabelWidth">
+            <el-form-item label="id" :label-width="formLabelWidth">
                 <el-input :disabled="true" v-model="form.id" auto-complete="off"></el-input>
             </el-form-item>
-            <el-form-item label="username" :label-width="formLabelWidth">
-                <el-input :disabled="true" v-model="form.username" auto-complete="off"></el-input>
+            <el-form-item label="ip" :label-width="formLabelWidth">
+                <el-input :disabled="true" v-model="form.ip" auto-complete="off"></el-input>
             </el-form-item>
 
-            <el-form-item label="email" :label-width="formLabelWidth">
-                <el-input :disabled="true" v-model="form.email" auto-complete="off"></el-input>
+            <el-form-item label="location" :label-width="formLabelWidth">
+                <el-input :disabled="true" v-model="form.location" auto-complete="off"></el-input>
             </el-form-item>
 
             <el-form-item label="phone" :label-width="formLabelWidth">

@@ -61,7 +61,7 @@
             },
             filterResultData: _.debounce(
                 function () {
-                    this.$axios.get("http://127.0.0.1:8000/api/persons", {
+                    this.$axios.get("http://127.0.0.1:8000/api/accessLog", {
                         params: {
                             sex: this.formInline.sex,
                             email: this.formInline.email,

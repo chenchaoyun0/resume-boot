@@ -1,6 +1,6 @@
 package com.chency.resume.service.impl;
 
-import com.chency.resume.entities.AccessLog;
+import com.chency.resume.domain.entities.AccessLog;
 import com.chency.resume.mapper.AccessLogMapper;
 import com.chency.resume.service.IAccessLogService;
 import com.github.pagehelper.PageHelper;

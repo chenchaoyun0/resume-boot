@@ -1,4 +1,4 @@
-package com.chency.resume.entities;
+package com.chency.resume.domain.entities;
 
 import java.util.Date;
 import javax.persistence.*;
@@ -9,7 +9,7 @@ import lombok.Data;
 @Entity
 @Table(name = "t_access_log")
 @Data
-public class AccessLog implements Serializable {
+public class AccessLog{
 
     @Id
     private Long id;
