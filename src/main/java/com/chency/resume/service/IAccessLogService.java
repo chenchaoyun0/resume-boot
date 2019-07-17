@@ -1,6 +1,7 @@
 package com.chency.resume.service;
 
 import com.chency.resume.entities.AccessLog;
+import com.github.pagehelper.PageInfo;
 import java.util.List;
 
 /**
@@ -14,5 +15,8 @@ public interface IAccessLogService {
   int save(AccessLog accessLog);
 
   List<AccessLog> queryAll();
+
+  PageInfo<AccessLog> queryPage(Integer pageNo, Integer pageSize);
+
 
 }

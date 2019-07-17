@@ -1,4 +1,5 @@
 
+import com.github.pagehelper.PageInfo;
 import com.megvii.dzh.utils.UUIDUtils;
 import java.util.Date;import com.alibaba.fastjson.JSON;
 import com.chency.resume.App;
@@ -53,5 +54,13 @@ public class LogTest {
   public void queryAll() {
     List<AccessLog> accessLogList = accessLogService.queryAll();
     log.info("accessLogList {}", JSON.toJSONString(accessLogList));
+  }
+
+  @Test
+  public void queryPage() {
+    Integer pageNo=1;
+    Integer pageSize=100;
+    PageInfo<AccessLog> accessLogPageInfo = accessLogService.queryPage(pageNo, pageSize);
+    log.info("accessLogPageInfo {}", JSON.toJSONString(accessLogPageInfo));
   }
 }

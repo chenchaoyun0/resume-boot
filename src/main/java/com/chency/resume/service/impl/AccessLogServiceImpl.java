@@ -3,6 +3,8 @@ package com.chency.resume.service.impl;
 import com.chency.resume.entities.AccessLog;
 import com.chency.resume.mapper.AccessLogMapper;
 import com.chency.resume.service.IAccessLogService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import java.util.List;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -18,8 +20,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class AccessLogServiceImpl implements IAccessLogService {
 
-  @Resource
-  private AccessLogMapper accessLogMapper;
+  @Resource private AccessLogMapper accessLogMapper;
 
   @Override
   public int save(AccessLog accessLog) {
@@ -29,5 +30,15 @@ public class AccessLogServiceImpl implements IAccessLogService {
   @Override
   public List<AccessLog> queryAll() {
     return accessLogMapper.selectAll();
+  }
+
+  @Override
+  public PageInfo<AccessLog> queryPage(Integer pageNo, Integer pageSize) {
+    pageNo = pageNo == null ? (Integer) 1 : pageNo;
+    pageSize = pageSize == null ? (Integer) 30 : pageSize;
+    PageHelper.startPage(pageNo, pageSize); // 告诉插件开始分页
+    List<AccessLog> selectAll = accessLogMapper.selectAll();
+    PageInfo<AccessLog> pageInfo = new PageInfo<>(selectAll);
+    return pageInfo;
   }
 }
