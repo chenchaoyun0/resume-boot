@@ -10,6 +10,7 @@ import com.megvii.dzh.utils.DzhBeanUtils;
 import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -24,7 +25,8 @@ public class AccessLogController {
   @RequestMapping(method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
   public AccessLogPageVo getPersonsAll(
       @RequestParam(value = "page", required = false) Integer pageNo,
-      @RequestParam("sex") String sex) {
+      @RequestParam("sysName") String sysName,
+      @RequestParam("ip") String ip) {
     PageInfo<AccessLog> accessLogPageInfo = accessLogService.queryPage(pageNo, null);
     AccessLogPageVo accessLogPageVo = new AccessLogPageVo();
     DataVo dataVo = new DataVo();
@@ -37,5 +39,13 @@ public class AccessLogController {
     accessLogPageVo.setData(dataVo);
 
     return accessLogPageVo;
+  }
+
+  @RequestMapping(
+      value = "/detail/{itemId}",
+      method = RequestMethod.GET,
+      produces = MediaType.APPLICATION_JSON_VALUE)
+  public ResultsVo getUserDetail(@PathVariable Long itemId) {
+    return accessLogService.findById(itemId);
   }
 }

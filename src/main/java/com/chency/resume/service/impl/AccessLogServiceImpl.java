@@ -1,10 +1,12 @@
 package com.chency.resume.service.impl;
 
 import com.chency.resume.domain.entities.AccessLog;
+import com.chency.resume.domain.vo.AccessLogPageVo.DataVo.ResultsVo;
 import com.chency.resume.mapper.AccessLogMapper;
 import com.chency.resume.service.IAccessLogService;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.megvii.dzh.utils.DzhBeanUtils;
 import java.util.List;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -44,5 +46,12 @@ public class AccessLogServiceImpl implements IAccessLogService {
     List<AccessLog> selectAll = accessLogMapper.selectAll();
     PageInfo<AccessLog> pageInfo = new PageInfo<>(selectAll);
     return pageInfo;
+  }
+
+  @Override
+  public ResultsVo findById(Long itemId) {
+    AccessLog accessLog = accessLogMapper.selectByPrimaryKey(itemId);
+    ResultsVo resultsVo = DzhBeanUtils.copyBean(accessLog, ResultsVo.class);
+    return resultsVo;
   }
 }

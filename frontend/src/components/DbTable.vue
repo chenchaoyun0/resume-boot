@@ -60,10 +60,10 @@
       </el-table-column>
       <el-table-column
         fixed="right"
-        label="Operation"
-        width="100">
+        label="操作"
+        width="70">
         <template scope="scope">
-          <el-button @click="editItem(scope.$index, tableData)" type="text" size="large">Edit</el-button>
+          <el-button @click="editItem(scope.$index, tableData)" type="text" size="large">详情</el-button>
         </template>
       </el-table-column>
     </el-table>
@@ -87,8 +87,8 @@
         total: 0,
         pageSize: 30,
         currentPage: 1,
-        sex: '',
-        email: '',
+        sysName: '',
+        ip: '',
         dialogFormVisible: false,
         form: '',
       }
@@ -102,8 +102,8 @@
         this.tableData = data.results;
         this.total = data.total_pages;
         this.pageSize = data.count;
-        this.email = data.email;
-        this.sex = data.sex;
+        this.ip = data.ip;
+        this.sysName = data.sysName;
 
       });
     },
@@ -118,8 +118,8 @@
         this.$axios.get(this.apiUrl, {
           params: {
             page: this.currentPage,
-            sex: this.sex,
-            email: this.email
+            sysName: this.sysName,
+            ip: this.ip
           }
         }).then((response) => {
           this.tableData = response.data.data.results;
@@ -137,7 +137,7 @@
       editItem: function (index, rows) {
         this.dialogFormVisible = true;
         const itemId = rows[index].id;
-        const idurl = 'http://127.0.0.1:8000/api/persons/detail/' + itemId;
+        const idurl = 'http://127.0.0.1:8000/api/accessLog/detail/' + itemId;
         this.$axios.get(idurl).then((response) => {
           this.form = response.data;
         }).catch(function (response) {
@@ -146,8 +146,8 @@
       },
 
       formatter(row, column) {
-        let data = this.$moment(row.create_datetime, this.$moment.ISO_8601);
-        return data.format('YYYY-MM-DD')
+        let data = this.$moment(row.createTime, this.$moment.ISO_8601);
+        return data.format('YYYY-MM-DD HH:mm:ss')
       },
     }
   }
