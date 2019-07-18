@@ -85,7 +85,7 @@
         tableData: [],
         apiUrl: 'http://127.0.0.1:8000/api/accessLog',
         total: 0,
-        pageSize: 30,
+        pageSize: 4,
         currentPage: 1,
         sysName: '',
         ip: '',
@@ -100,7 +100,7 @@
       this.getCustomers();
       Bus.$on('filterResultData', (data) => {
         this.tableData = data.results;
-        this.total = data.total_pages;
+        this.total = data.total;
         this.pageSize = data.count;
         this.ip = data.ip;
         this.sysName = data.sysName;

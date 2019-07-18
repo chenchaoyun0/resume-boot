@@ -2,6 +2,7 @@ package com.chency.resume.service.impl;
 
 import com.chency.resume.domain.entities.AccessLog;
 import com.chency.resume.domain.vo.AccessLogPageVo.DataVo.ResultsVo;
+import com.chency.resume.domain.vo.SystemNamesVo;
 import com.chency.resume.mapper.AccessLogMapper;
 import com.chency.resume.service.IAccessLogService;
 import com.github.pagehelper.PageHelper;
@@ -49,9 +50,18 @@ public class AccessLogServiceImpl implements IAccessLogService {
   }
 
   @Override
-  public ResultsVo findById(Long itemId) {
+  public AccessLog findById(Long itemId) {
     AccessLog accessLog = accessLogMapper.selectByPrimaryKey(itemId);
-    ResultsVo resultsVo = DzhBeanUtils.copyBean(accessLog, ResultsVo.class);
-    return resultsVo;
+    return accessLog;
+  }
+
+  @Override
+  public int updateSelective(AccessLog accessLog) {
+    return accessLogMapper.updateByPrimaryKeySelective(accessLog);
+  }
+
+  @Override
+  public List<SystemNamesVo> selectSysNames() {
+    return accessLogMapper.selectSysNames();
   }
 }

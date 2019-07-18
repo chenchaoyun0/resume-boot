@@ -2,6 +2,7 @@ package com.chency.resume.service;
 
 import com.chency.resume.domain.entities.AccessLog;
 import com.chency.resume.domain.vo.AccessLogPageVo.DataVo.ResultsVo;
+import com.chency.resume.domain.vo.SystemNamesVo;
 import com.github.pagehelper.PageInfo;
 import java.util.List;
 
@@ -19,6 +20,10 @@ public interface IAccessLogService {
 
   PageInfo<AccessLog> queryPage(Integer pageNo, Integer pageSize);
 
-  ResultsVo findById(Long itemId);
+  AccessLog findById(Long itemId);
+
+  int updateSelective(AccessLog accessLog);
+
+  List<SystemNamesVo> selectSysNames();
 
 }
