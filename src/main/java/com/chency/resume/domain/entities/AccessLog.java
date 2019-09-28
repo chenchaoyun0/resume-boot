@@ -24,11 +24,12 @@ public class AccessLog{
 
     private String module;
 
-    private String path;
 
     private Date createTime;
 
     private Long causeTime;
+
+    private String path;
 
     private String browserType;
 

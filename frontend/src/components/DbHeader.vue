@@ -1,7 +1,7 @@
 <template>
     <header style="background-color: rgb(10, 47, 88);">
         <div class="text-logo">{{msg}}</div>
-        <p class="meta">本页面是一个demo页记录来自世界各地的IP访问，如个人，网络蜘蛛🕷</p>
+        <p class="meta">本页面是一个demo页记录来自世界各地的IP访问🕷</p>
         <ul class="header-operations">
         </ul>
     </header>

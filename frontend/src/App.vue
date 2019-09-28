@@ -91,7 +91,7 @@
     .content {
         padding-top: 25px;
         padding-right: 25px;
-        padding-bottom: 125px;
+        padding-bottom: 120px;
         padding-left: 25px;
     }
 
